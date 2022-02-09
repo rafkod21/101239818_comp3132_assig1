@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "f875d1c8-3138-4d1a-b448-3365a28942a2",
+		"name": "assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n  register(registerInput:{\r\n    username:\"user1232\"\r\n    email:\"user312@gmail.com\"\r\n    firstName:\"first\"\r\n    lastName:\"user\"\r\n    type:\"user\"\r\n    password:\"pass1234\"\r\n    confirmPassword:\"pass1234\"\r\n  })\r\n  {\r\n    id\r\n    email\r\n    token\r\n    username\r\n    type\r\n  }\r\n}\r\n",
+						"variables": ""
+					},
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n  login(username:\"admin\",password:\"pass1234\"){\r\n    id\r\n    email\r\n    token\r\n    username\r\n  \r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BookingByAdmin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDNjNDQyMTkyYzk1Zjg5NTg4ZjdjNiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwidXNlcm5hbWUiOiJhZG1pbiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTY0NDQxNDUwMCwiZXhwIjoxNjQ0NDE4MTAwfQ.cGjBsxW_pVctfIDziwfRcH_l9irluA5z-yGr0uSJ8SE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n  createBookingByAdmin(listing_id:\"T0001\",listing_title:\"Booking is ready for admin\",description:\"admin admin Blah Blah\",\r\n  street:\"123\",city:\"admin city\",price:23,postalCode:\"Mx192\")\r\n  {\r\n    listing_id\r\n    listing_title\r\n    description\r\n    street\r\n    city\r\n    price\r\n    username\r\n  \temail\r\n    postalCode\r\n    \r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BookingByUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDNjNzFhMTkyYzk1Zjg5NTg4ZjdkNCIsImVtYWlsIjoidXNlcjFAZ21haWwuY29tIiwidXNlcm5hbWUiOiJ1c2VyMSIsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjQ0NDE0NzQ2LCJleHAiOjE2NDQ0MTgzNDZ9.Jt7ultE6QchyNTPLS14CTaOnzk_xxdZvpfrESMLJHjc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\r\n  createBookingByUser(listing_id:\"T0002\",listing_title:\"User Booking is ready for user\",description:\"user Blah Blah\",\r\n  street:\"123\",city:\"user city\")\r\n  {\r\n    listing_id\r\n    listing_title\r\n    description\r\n    street\r\n    city\r\n    username\r\n  \temail\r\n    \r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBookingsByUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDNjNzFhMTkyYzk1Zjg5NTg4ZjdkNCIsImVtYWlsIjoidXNlcjFAZ21haWwuY29tIiwidXNlcm5hbWUiOiJ1c2VyMSIsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjQ0NDE0NzQ2LCJleHAiOjE2NDQ0MTgzNDZ9.Jt7ultE6QchyNTPLS14CTaOnzk_xxdZvpfrESMLJHjc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  getAllBookingsByUser{\r\n    description\r\n    listing_title\r\n    listing_id\r\n    username\r\n    id\r\n    email\r\n    city\r\n\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBookingByAdmin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDNjNDQyMTkyYzk1Zjg5NTg4ZjdjNiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwidXNlcm5hbWUiOiJhZG1pbiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTY0NDQxNDUwMCwiZXhwIjoxNjQ0NDE4MTAwfQ.cGjBsxW_pVctfIDziwfRcH_l9irluA5z-yGr0uSJ8SE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\r\n  getAllBookingsByAdmin{\r\n    id\r\n    description\r\n    listing_title\r\n    listing_id\r\n    username\r\n    id\r\n    email\r\n    city\r\n    price\r\n    postalCode\r\n\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDNjNDQyMTkyYzk1Zjg5NTg4ZjdjNiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwidXNlcm5hbWUiOiJhZG1pbiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTY0NDQxNDUwMCwiZXhwIjoxNjQ0NDE4MTAwfQ.cGjBsxW_pVctfIDziwfRcH_l9irluA5z-yGr0uSJ8SE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\r\n  searchBookings(input:{city:\"admin city\"}){\r\n    id\r\n    listing_id\r\n    listing_title\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
