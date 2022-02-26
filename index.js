@@ -14,7 +14,6 @@ const checkAuth = require('./utils/checkAuth');
 
 
 
-
 const typeDefs = gql`
     type Booking {
         id: ID!
